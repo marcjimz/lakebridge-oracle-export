@@ -112,7 +112,6 @@ python -m src.oracle_lakebridge_extractor \
 # Then run on the database server:
 sqlplus user/password@database @/data/lakebridge_staging/extract_ddl.sql
 ```
-```
 
 ### CLI Options
 
