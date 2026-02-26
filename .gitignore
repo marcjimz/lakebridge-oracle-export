@@ -1,0 +1,112 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Docker
+docker/.env
+
+# Output
+lakebridge_output/
+output/
+*.xlsx
+lakebridge_inventory.json
+
+# Logs
+*.log
+logs/
+
+# Secrets (never commit)
+*.pem
+*.key
+*.cert
+secrets.json
+credentials.json
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*~
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Distribution / packaging
+.installed.cfg
+MANIFEST
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# Ruff
+.ruff_cache/
+
+# Hive Mind / Claude Flow (development)
+.claude-flow/
+.hive-mind/
+examples/*

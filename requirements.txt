@@ -1,0 +1,11 @@
+# Oracle Lakebridge Extractor - Python Dependencies
+
+# Core dependency - Oracle database driver
+oracledb>=2.0.0
+
+# Optional: Development dependencies (uncomment for development)
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
+# black>=23.0.0
+# ruff>=0.1.0
+# mypy>=1.0.0
