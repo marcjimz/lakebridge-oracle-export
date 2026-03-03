@@ -51,6 +51,15 @@ class OracleConnection:
                 "oracledb module not found. Install with: pip install oracledb"
             )
 
+        # Enable thick mode if requested (required for older Oracle password verifiers)
+        if self.config.get('thick_mode'):
+            lib_dir = self.config.get('thick_mode_lib_dir')
+            try:
+                oracledb.init_oracle_client(lib_dir=lib_dir)
+            except oracledb.ProgrammingError:
+                # Already initialized (init_oracle_client can only be called once)
+                pass
+
         host = self.config['host']
         port = self.config.get('port', 1521)
         service = self.config['service']
@@ -948,6 +957,16 @@ Examples:
     conn_group.add_argument('--sid', help='Oracle SID (use instead of --service)')
     conn_group.add_argument('--user', help='Oracle username')
     conn_group.add_argument('--password', help='Oracle password')
+    conn_group.add_argument(
+        '--thick-mode', action='store_true',
+        help='Use thick mode (requires Oracle Instant Client). '
+             'Needed for older Oracle databases with unsupported password verifier types.'
+    )
+    conn_group.add_argument(
+        '--lib-dir',
+        help='Path to Oracle Instant Client directory (for --thick-mode). '
+             'E.g. C:\\oracle\\instantclient_21_12 on Windows.'
+    )
 
     # Extraction options
     extract_group = parser.add_argument_group('Extraction Options')
@@ -1013,6 +1032,8 @@ Examples:
         'user': args.user,
         'password': args.password,
         'use_sid': bool(args.sid),
+        'thick_mode': args.thick_mode,
+        'thick_mode_lib_dir': args.lib_dir,
     }
 
     extractor = LakebridgeExtractor(
